@@ -1,99 +1,50 @@
-:root {
-    --gold: #d4af37;
-    --dark: #020617;
-}
+:root { --gold: #d4af37; --dark: #020617; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { background-color: var(--dark); font-family: 'Montserrat', sans-serif; color: white; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--dark);
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bg-pattern {
-    position: absolute; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-    opacity: 0.15; z-index: -1;
-}
-
-.kalyan, .flower {
-    position: absolute; font-size: 35px;
-    filter: drop-shadow(0 0 15px var(--gold));
-    animation: sway 6s infinite alternate ease-in-out;
-}
+.bg-pattern { position: absolute; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png'); opacity: 0.15; z-index: -1; }
+.kalyan, .flower { position: absolute; font-size: 35px; filter: drop-shadow(0 0 15px var(--gold)); animation: sway 6s infinite alternate ease-in-out; }
 .k1, .f1 { top: 5%; left: 10%; }
 .k2, .f2 { top: 10%; right: 10%; animation-delay: 1s; }
 .k3, .f3 { bottom: 15%; left: 15%; animation-delay: 2s; }
 .k4, .f4 { bottom: 10%; right: 15%; animation-delay: 3s; }
 
-@keyframes sway {
-    from { transform: translateY(0) rotate(0deg); }
-    to { transform: translateY(-30px) rotate(20deg); }
-}
+@keyframes sway { from { transform: translateY(0) rotate(0deg); } to { transform: translateY(-30px) rotate(20deg); } }
 
 .main-wrapper, .wish-wrapper { width: 95%; max-width: 380px; z-index: 10; }
+.glass-card, .wish-content { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px); border: 2px solid rgba(212, 175, 55, 0.4); border-radius: 40px; padding: 35px 25px; text-align: center; box-shadow: 0 0 50px rgba(0,0,0,0.7); }
 
-.glass-card, .wish-content {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(25px);
-    border: 2px solid rgba(212, 175, 55, 0.4);
-    border-radius: 40px;
-    padding: 35px 25px;
-    text-align: center;
-    box-shadow: 0 0 50px rgba(0,0,0,0.7);
-}
-
-.premium-badge {
-    font-size: 9px; letter-spacing: 2px; color: var(--gold);
-    border: 1px solid var(--gold); display: inline-block;
-    padding: 4px 12px; border-radius: 50px; margin-bottom: 15px;
-}
-
-.rainbow-text {
-    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-size: 400%; animation: flow 5s linear infinite;
-    font-family: 'Amiri'; font-size: 3.8rem; line-height: 1.1;
-}
-
-.rainbow-text-alt {
-    background: linear-gradient(to right, #ffd700, #ffffff, #ffd700, #ff8c00);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-size: 300%; animation: flow 4s linear infinite;
-    font-family: 'Cinzel'; font-size: 1.5rem; margin: 5px 0;
-}
-
-.neon-blue {
-    color: #fff; text-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
-    animation: neonPulse 2s infinite alternate;
-    font-size: 2.1rem; font-weight: 800; text-transform: uppercase;
-}
+/* Text Styles */
+.rainbow-text { background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 400%; animation: flow 5s linear infinite; font-family: 'Amiri'; font-size: 3.5rem; line-height: 1.1; display: inline-block; }
+.rainbow-text-alt { background: linear-gradient(to right, #ffd700, #ffffff, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 300%; animation: flow 4s linear infinite; font-family: 'Cinzel'; font-size: 1.5rem; margin: 5px 0; display: inline-block; }
+.neon-blue { color: #fff; text-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff; animation: neonPulse 2s infinite alternate; font-size: 2.1rem; font-weight: 800; text-transform: uppercase; }
 
 @keyframes flow { to { background-position: 400%; } }
 @keyframes neonPulse { from { opacity: 0.8; transform: scale(1); } to { opacity: 1; transform: scale(1.05); } }
 
+/* BUTTONS: Row Layout */
+.action-panel { position: fixed; bottom: 20px; display: flex; flex-direction: row; gap: 8px; z-index: 100; width: 90%; max-width: 380px; justify-content: center; }
+.edit-btn, .download-btn { flex: 1; background: var(--gold); color: #000; border: none; padding: 12px 5px; border-radius: 30px; font-weight: 800; cursor: pointer; font-size: 11px; }
+.download-btn { background: #25d366; color: white; }
+.back-btn { flex: 0.4; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 12px 5px; border-radius: 30px; font-size: 10px; cursor: pointer; }
+
+/* Modal */
+.modal { display: none; position: fixed; z-index: 200; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+.modal-content { background: #111827; padding: 30px; border-radius: 30px; border: 1px solid var(--gold); text-align: center; width: 90%; max-width: 320px; }
+#userEditName { width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; text-align: center; margin-bottom: 20px; outline: none; }
+.modal-btns { display: flex; gap: 10px; }
+.apply-btn { flex: 2; padding: 15px; background: var(--gold); border: none; border-radius: 12px; font-weight: 800; cursor: pointer; color: #000; }
+.cancel-btn { flex: 1; padding: 15px; background: rgba(255,255,255,0.1); border: none; border-radius: 12px; color: white; cursor: pointer; }
+
+#capture-area { width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; background: #020617; position: relative; overflow: hidden; }
+.premium-badge { font-size: 9px; letter-spacing: 2px; color: var(--gold); border: 1px solid var(--gold); display: inline-block; padding: 4px 12px; border-radius: 50px; margin-bottom: 15px; }
 .hero-title { font-family: 'Cinzel'; font-size: 1.8rem; margin-bottom: 5px; }
 .sub-text { font-size: 13px; opacity: 0.6; margin-bottom: 25px; }
 .divider-gold { width: 50px; height: 2px; background: var(--gold); margin: 15px auto; }
 .pro-quote { font-size: 14px; line-height: 1.7; color: #ddd; margin-bottom: 25px; }
+.breathe-anim { animation: breathe 3s infinite; }
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
 .tag { font-size: 9px; letter-spacing: 3px; opacity: 0.5; }
-
-.input-group input {
-    width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);
-    background: transparent; color: white; text-align: center; margin-bottom: 15px; outline: none;
-}
-.glow-btn {
-    width: 100%; padding: 18px; background: var(--gold); border: none;
-    border-radius: 15px; font-weight: 800; color: #000; cursor: pointer;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-}
-.create-btn {
-    background: transparent; border: 1px solid var(--gold); color: var(--gold);
-    padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 11px;
-}
+.input-group input { width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; text-align: center; margin-bottom: 15px; outline: none; }
+.glow-btn { width: 100%; padding: 18px; background: var(--gold); border: none; border-radius: 15px; font-weight: 800; color: #000; cursor: pointer; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); }
+.footer-note { margin-top: 15px; font-size: 10px; opacity: 0.4; letter-spacing: 1px; }

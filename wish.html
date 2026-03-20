@@ -8,33 +8,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <div class="decoration-layer">
-        <span class="kalyan k1">🌸</span><span class="kalyan k2">🌺</span>
-        <span class="kalyan k3">🌼</span><span class="kalyan k4">🌷</span>
-        <span class="kalyan k5">🌙</span><span class="kalyan k6">🏮</span>
-    </div>
-    
-    <div class="wish-wrapper">
-        <div class="wish-content">
-            <h1 class="eid-title-anim rainbow-text">Eid Mubarak</h1>
-            <h2 id="targetName" class="user-name-anim neon-blue">Guest</h2>
-            
-            <div class="divider-gold"></div>
-            
-            <p class="pro-quote">
-                May the divine blessings of Allah bring you hope, faith, and joy on this auspicious day. May your heart be light and your life be bright with the beauty of this celebration.
-            </p>
+    <div id="capture-area">
+        <div class="bg-pattern"></div>
+        <div class="decoration-layer">
+            <span class="kalyan k1">🌸</span><span class="kalyan k2">🌺</span>
+            <span class="kalyan k3">🌼</span><span class="kalyan k4">🌷</span>
+            <span class="kalyan k5">🌙</span><span class="kalyan k6">🏮</span>
+        </div>
+        
+        <div class="wish-wrapper">
+            <div class="wish-content" id="main-card">
+                <h1 class="eid-title-anim rainbow-text" id="wish-title">Eid-ul-Fitr Mubarak</h1>
+                <h2 id="targetName" class="user-name-anim neon-blue">Guest</h2>
+                
+                <div class="divider-gold"></div>
+                
+                <p class="pro-quote breathe-anim">
+                    May the divine blessings of Allah bring you hope, faith, and joy on this auspicious day. May your heart be light and your life be bright with the beauty of this celebration.
+                </p>
 
-            <div class="signature-section">
-                <span class="tag">HEARTFELT REGARDS FROM</span>
-                <h3 class="sender-name-anim rainbow-text-alt">Muhammad Aamir</h3>
-                <button onclick="window.location.href='index.html'" class="create-btn">Create New</button>
+                <div class="signature-section">
+                    <span class="tag" id="tag-text">HEARTFELT REGARDS FROM</span>
+                    <h3 id="senderName" class="sender-name-anim rainbow-text-alt">Muhammad Aamir</h3>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="action-panel">
+        <button id="openEditor" class="edit-btn">Create Your Own 🎨</button>
+        <button id="downloadBtn" class="download-btn" style="display:none;">Download 📥</button>
+        <button onclick="window.location.href='index.html'" class="back-btn">Home</button>
+    </div>
+
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h3>Enter Your Name</h3>
+            <p>To create your personalized card</p>
+            <input type="text" id="userEditName" placeholder="Your Name Here..." maxlength="15">
+            <div class="modal-btns">
+                <button id="applyName" class="apply-btn">Generate Card</button>
+                <button id="closeModal" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
