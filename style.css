@@ -1,97 +1,104 @@
 :root {
     --gold: #d4af37;
     --dark: #020617;
-    --glass: rgba(255, 255, 255, 0.05);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--dark);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-canvas { position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none; }
-
-.main-wrapper, .wish-wrapper { 
-    width: 90%; 
-    max-width: 360px; 
-    z-index: 10; 
+/* --- Background & Decorations --- */
+.bg-pattern {
+    position: absolute; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+    opacity: 0.15; z-index: -1;
 }
 
-.glass-card, .content-container {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 35px 25px;
+.kalyan, .flower {
+    position: absolute; font-size: 35px;
+    filter: drop-shadow(0 0 15px var(--gold));
+    animation: sway 6s infinite alternate ease-in-out;
+}
+.k1, .f1 { top: 5%; left: 10%; }
+.k2, .f2 { top: 10%; right: 10%; animation-delay: 1s; }
+.k3, .f3 { bottom: 15%; left: 15%; animation-delay: 2s; }
+.k4, .f4 { bottom: 10%; right: 15%; animation-delay: 3s; }
+
+@keyframes sway {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-30px) rotate(20deg); }
+}
+
+/* --- Layout Settings --- */
+.main-wrapper, .wish-wrapper { width: 95%; max-width: 380px; z-index: 10; }
+
+.glass-card, .wish-content {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 40px;
+    padding: 40px 25px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 0 50px rgba(0,0,0,0.7);
 }
 
-.badge {
-    background: rgba(212, 175, 55, 0.1);
-    color: var(--gold);
-    padding: 5px 12px;
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    display: inline-block;
+.premium-badge {
+    font-size: 9px; letter-spacing: 2px; color: var(--gold);
+    border: 1px solid var(--gold); display: inline-block;
+    padding: 4px 12px; border-radius: 50px; margin-bottom: 20px;
 }
 
-h1.gold-title { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--gold); }
-p.desc { font-size: 13px; opacity: 0.6; margin-top: 5px; }
-
-.input-section input {
-    width: 100%;
-    padding: 16px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 15px;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    margin: 30px 0 15px;
-    outline: none;
+/* --- Triple Animated Colors --- */
+.rainbow-text {
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-size: 400%; animation: flow 5s linear infinite;
+    font-family: 'Amiri'; font-size: 4rem; line-height: 1;
 }
 
-.primary-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--gold), #8a6d3b);
-    border: none;
-    border-radius: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    color: #000;
-    text-transform: uppercase;
-    font-size: 13px;
+.rainbow-text-alt {
+    background: linear-gradient(to right, #ffd700, #ffffff, #ffd700, #ff8c00);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-size: 300%; animation: flow 4s linear infinite;
+    font-family: 'Cinzel'; font-size: 1.6rem; margin: 10px 0;
 }
 
-.arabic-header { font-family: 'Amiri', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
-.user-name { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 10px 0; color: #fff; }
-.line-ornament { width: 50px; height: 2px; background: var(--gold); margin: 25px auto; }
-.wish-text { font-size: 14px; line-height: 1.7; opacity: 0.8; }
-
-.signature-box { margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; }
-.gold-name { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.3rem; margin-top: 5px; }
-
-.secondary-btn {
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 10px 20px;
-    margin-top: 25px;
-    border-radius: 12px;
-    font-size: 12px;
-    cursor: pointer;
+.neon-blue {
+    color: #fff; text-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
+    animation: neonPulse 2s infinite alternate;
+    font-size: 2.2rem; font-weight: 800; text-transform: uppercase;
 }
+
+@keyframes flow { to { background-position: 400%; } }
+@keyframes neonPulse { from { opacity: 0.8; transform: scale(1); } to { opacity: 1; transform: scale(1.05); } }
+
+/* --- Spacing & Buttons --- */
+.hero-title { font-family: 'Cinzel'; font-size: 1.8rem; margin-bottom: 10px; }
+.sub-text { font-size: 13px; opacity: 0.6; margin-bottom: 30px; }
+.divider-gold { width: 50px; height: 2px; background: var(--gold); margin: 20px auto; }
+.pro-quote { font-size: 14px; line-height: 1.7; color: #ddd; margin-bottom: 30px; }
+.tag { font-size: 9px; letter-spacing: 3px; opacity: 0.5; }
+
+.input-group input {
+    width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);
+    background: transparent; color: white; text-align: center; margin-bottom: 15px;
+}
+.glow-btn {
+    width: 100%; padding: 18px; background: var(--gold); border: none;
+    border-radius: 15px; font-weight: 800; color: #000; cursor: pointer;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+.create-btn {
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 11px;
+}
+.footer-note { margin-top: 20px; font-size: 10px; opacity: 0.4; letter-spacing: 1px; }

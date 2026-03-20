@@ -5,29 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eid Mubarak!</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <canvas id="bg-canvas-wish"></canvas>
+    <div class="bg-pattern"></div>
+    <div class="decoration-layer">
+        <span class="kalyan k1">🌸</span><span class="kalyan k2">🌺</span>
+        <span class="kalyan k3">🌼</span><span class="kalyan k4">🌷</span>
+        <span class="kalyan k5">🌙</span><span class="kalyan k6">🏮</span>
+    </div>
+    
     <div class="wish-wrapper">
-        <div class="content-container">
-            <h1 class="arabic-header anim-reveal">Eid Mubarak</h1>
-            <h2 id="targetName" class="user-name anim-reveal">Guest</h2>
+        <div class="wish-content">
+            <h1 class="eid-title-anim rainbow-text">Eid Mubarak</h1>
+            <h2 id="targetName" class="user-name-anim neon-blue">Guest</h2>
             
-            <div class="line-ornament anim-reveal"></div>
+            <div class="divider-gold"></div>
             
-            <p class="wish-text anim-reveal">
-                May the blessings of Allah fill your life with happiness and open all the doors of success now and always.
+            <p class="pro-quote">
+                May the divine blessings of Allah bring you hope, faith, and joy on this auspicious day. May your heart be light and your life be bright with the beauty of this celebration.
             </p>
 
-            <div class="signature-box anim-reveal">
-                <span class="small-text">SINCERELY FROM</span>
-                <h3 class="gold-name">Muhammad Aamir</h3>
+            <div class="signature-section">
+                <span class="tag">HEARTFELT REGARDS FROM</span>
+                <h3 class="sender-name-anim rainbow-text-alt">Muhammad Aamir</h3>
+                <button onclick="window.location.href='index.html'" class="create-btn">Create New</button>
             </div>
-
-            <button onclick="window.location.href='index.html'" class="secondary-btn anim-reveal">Create New Wish</button>
         </div>
     </div>
     <script src="script.js"></script>
